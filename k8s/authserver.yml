@@ -17,7 +17,7 @@ spec:
       containers:
         - name: authserver
           image: hongyan5682/authserver:latest
-          imagePullPolicy: Always
+          imagePullPolicy: Never
           env:
             - name: TZ
               value: Asia/Hong_Kong
