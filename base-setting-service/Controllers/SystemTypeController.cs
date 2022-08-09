@@ -16,45 +16,45 @@ namespace base_setting_service.Controllers
             this.configuration = configuration;
         }
 
-        [HttpPost]
-        [Route("add")]
-        public async Task<IActionResult> Add(string id,string systemTypeName)
-        {
-            var redis = await ConnectionMultiplexer.ConnectAsync(this.configuration["Redis"]);
-            var db = redis.GetDatabase();
+        //[HttpPost]
+        //[Route("add")]
+        //public async Task<IActionResult> Add(string id,string systemTypeName)
+        //{
+        //    var redis = await ConnectionMultiplexer.ConnectAsync(this.configuration["Redis"]);
+        //    var db = redis.GetDatabase();
 
-            HashEntry[] hashEntries = new HashEntry[2];
-            hashEntries[0] = new HashEntry("Id",id);
-            hashEntries[1] = new HashEntry("SystemTypeName", systemTypeName);
+        //    HashEntry[] hashEntries = new HashEntry[2];
+        //    hashEntries[0] = new HashEntry("Id",id);
+        //    hashEntries[1] = new HashEntry("SystemTypeName", systemTypeName);
 
-            db.HashSet($"SystemType:{id}", hashEntries);
+        //    db.HashSet($"SystemType:{id}", hashEntries);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
         [HttpGet]
         [Route("getbyid")]
-        public async Task<IActionResult> GetById(string id)
+        public IActionResult GetById(string id)
         {
-            var redis = await ConnectionMultiplexer.ConnectAsync(this.configuration["Redis"]);
-            var db = redis.GetDatabase();
+            //var redis = await ConnectionMultiplexer.ConnectAsync(this.configuration["Redis"]);
+            //var db = redis.GetDatabase();
 
-            var hashEntity = db.HashGetAll($"SystemType:{id}");
+            //var hashEntity = db.HashGetAll($"SystemType:{id}");
 
-            SystemType systemType = null;
-            if(hashEntity!= null && hashEntity.Length > 0)
-            {
-                systemType = new SystemType();
-                systemType.Id = hashEntity.FirstOrDefault(o => o.Name.ToString() == "Id").Value.ToString();
-                systemType.SystemTypeName= hashEntity.FirstOrDefault(o => o.Name.ToString() == "SystemTypeName").Value.ToString();
-            }
+            //SystemType systemType = null;
+            //if(hashEntity!= null && hashEntity.Length > 0)
+            //{
+            //    systemType = new SystemType();
+            //    systemType.Id = hashEntity.FirstOrDefault(o => o.Name.ToString() == "Id").Value.ToString();
+            //    systemType.SystemTypeName= hashEntity.FirstOrDefault(o => o.Name.ToString() == "SystemTypeName").Value.ToString();
+            //}
 
-            if (systemType == null)
-            {
-                return NotFound(new { Message="根据此Id找不到SystemType"});
-            }
+            //if (systemType == null)
+            //{
+            //    return NotFound(new { Message="根据此Id找不到SystemType"});
+            //}
 
-            return Ok(systemType);
+            return Ok(new SystemType { Id=id,SystemTypeName="Test"});
         }
     }
 
