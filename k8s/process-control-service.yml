@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: process-control-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: process-control-service
+  template:
+    metadata:
+      labels:
+        app: process-control-service
+    spec:
+      #assigned to master node
+      #nodeName: dgtestlinux01v
+      containers:
+        - name: process-control-service
+          image: hongyan5682/process-control-service:latest
+          imagePullPolicy: Always
+          env:
+            - name: TZ
+              value: Asia/Hong_Kong
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: process-control-service
+spec:
+  selector:
+    app: process-control-service
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
