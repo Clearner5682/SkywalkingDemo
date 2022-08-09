@@ -16,7 +16,7 @@ spec:
       #nodeName: dgtestlinux01v
       containers:
         - name: base-setting-service
-          image: hongyan5682/base-setting-service:latest
+          image: base-setting-service:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ
