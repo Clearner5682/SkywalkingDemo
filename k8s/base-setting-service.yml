@@ -17,7 +17,7 @@ spec:
       containers:
         - name: base-setting-service
           image: hongyan5682/base-setting-service:latest
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           env:
             - name: TZ
               value: Asia/Hong_Kong
