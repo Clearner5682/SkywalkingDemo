@@ -10,12 +10,12 @@ docker rmi $(docker images -f "dangling=true" -q)
 
 # delete remote images from repository
 # export HUB_TOKEN=XXXXXXXX
-curl -X DELETE -H "Authorization: Bearer $HUB_TOKEN" https://hub.docker.com/v2/repositories/hongyan5682/gateway-web/
+#curl -X DELETE -H "Authorization: Bearer $HUB_TOKEN" https://hub.docker.com/v2/repositories/hongyan5682/gateway-web/
 
 # push images
-docker login -u hongyan5682 -p 123456Asdcv
-docker push hongyan5682/authserver:latest
-docker push hongyan5682/base-setting-service:latest
-docker push hongyan5682/gateway:latest
-docker push hongyan5682/identity-service:latest
-docker push hongyan5682/process-control-service:latest
+#docker login -u hongyan5682 -p 123456Asdcv
+#docker push hongyan5682/authserver:latest
+#docker push hongyan5682/base-setting-service:latest
+#docker push hongyan5682/gateway:latest
+#docker push hongyan5682/identity-service:latest
+#docker push hongyan5682/process-control-service:latest
