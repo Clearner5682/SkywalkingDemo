@@ -30,6 +30,7 @@ builder.Services.AddDbContext<MyDbContext>(dbContextOptionsBuilder =>
 {
     dbContextOptionsBuilder.UseMySQL(builder.Configuration["Db"], options => { 
     });
+    dbContextOptionsBuilder.EnableSensitiveDataLogging();
 });
 
 var app = builder.Build();
