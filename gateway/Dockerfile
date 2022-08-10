@@ -38,5 +38,7 @@ COPY --from=publish /app .
 RUN sed -i 's/TLSv1.2/TLSv1.0/g' /etc/ssl/openssl.cnf
 
 ENV ASPNETCORE_ENVIRONMENT=K8s-Dev
+ENV ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=SkyAPM.Agent.AspNetCore
+ENV SKYWALKING__SERVICENAME=gateway
 
 ENTRYPOINT ["dotnet", "gateway.dll"]

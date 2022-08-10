@@ -17,7 +17,8 @@ spec:
       containers:
         - name: process-control-service
           image: hongyan5682/process-control-service:latest
-          imagePullPolicy: IfNotPresent
+          # imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: TZ
               value: Asia/Hong_Kong

@@ -17,7 +17,8 @@ spec:
       containers:
         - name: identity-service
           image: hongyan5682/identity-service:latest
-          imagePullPolicy: IfNotPresent
+          # imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: TZ
               value: Asia/Hong_Kong
