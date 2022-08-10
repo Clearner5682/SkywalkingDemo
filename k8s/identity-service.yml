@@ -16,7 +16,7 @@ spec:
       #nodeName: dgtestlinux01v
       containers:
         - name: identity-service
-          image: identity-service:latest
+          image: hongyan5682/identity-service:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ

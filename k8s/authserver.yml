@@ -16,7 +16,7 @@ spec:
       #nodeName: dgtestlinux01v
       containers:
         - name: authserver
-          image: authserver:latest
+          image: hongyan5682/authserver:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ

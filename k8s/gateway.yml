@@ -16,7 +16,7 @@ spec:
       #nodeName: dgtestlinux01v
       containers:
         - name: gateway
-          image: gateway:latest
+          image: hongyan5682/gateway:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ

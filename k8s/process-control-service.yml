@@ -16,7 +16,7 @@ spec:
       #nodeName: dgtestlinux01v
       containers:
         - name: process-control-service
-          image: process-control-service:latest
+          image: hongyan5682/process-control-service:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ
