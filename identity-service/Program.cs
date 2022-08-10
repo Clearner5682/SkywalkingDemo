@@ -1,4 +1,6 @@
+using identity_service;
 using SkyApm.Utilities.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,12 @@ builder.Services.AddAuthentication("Bearer")
 
 
 builder.Services.AddSkyApmExtensions();
+
+builder.Services.AddDbContext<MyDbContext>(dbContextOptionsBuilder =>
+{
+    dbContextOptionsBuilder.UseMySQL(builder.Configuration["Db"], options => { 
+    });
+});
 
 var app = builder.Build();
 
